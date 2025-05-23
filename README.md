@@ -1,37 +1,53 @@
 # Camera Calibration Using OpenCV
 
-This repository is a modified version of https://github.com/spmallick/learnopencv/tree/master/CameraCalibration without visualization features.
+This project performs camera calibration using OpenCV in both C++ and Python. It computes the camera matrix and distortion coefficients from a set of calibration images and applies these parameters to undistort images. Based on the original [LearnOpenCV project](https://github.com/spmallick/learnopencv/tree/master/CameraCalibration), this version removes all visualization features.
 
-## Using the C++ code
+## Features
+- Compute camera calibration parameters from chessboard images.
+- Undistort images using computed calibration.
+- C++ and Python implementations.
+
+## C++ Usage
+
 ### Compilation
-To compile the `cameraCalibration.cpp`  and `cameraCalibrationWithUndistortion.cpp` code files, use the following:
-```shell
+```bash
 mkdir build
 cd build
 cmake ..
 cmake --build . --config Release
-```
-## Usage
+````
 
-### Using the C++ code
+### Execution
 
-Refer to the following to use the compiled files:
-
-```shell
-./build/cameraCalibration
-./build/cameraCalibrationWithUndistortion
+```bash
+./cameraCalibration
+./cameraCalibrationWithUndistortion
 ```
 
-### Using the python code
+## Python Usage
 
-Create a virtual environment for Python 3.13.
-- `python3.13 -m venv .venv`
-- `source .venv/bin/activate`
-- `pip install -r requirements.txt`
+### Setup
 
-Refer to the following to use the `cameraCalibration.py` and `cameraCalibrationWithUndistortion.py` files respectively:
+Use Python 3.13 in a virtual environment:
 
-```shell
+```bash
+python3.13 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Execution
+
+Place calibration images in the `./images` directory.
+
+Run:
+
+```bash
 python3 cameraCalibration.py
 python3 cameraCalibrationWithUndistortion.py
 ```
+
+## Notes
+
+* Input images must show a chessboard pattern.
+* Results include saved calibration parameters and undistorted output.
